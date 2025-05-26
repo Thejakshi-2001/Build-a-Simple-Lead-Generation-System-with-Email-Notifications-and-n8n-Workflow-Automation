@@ -1,0 +1,22 @@
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel, EmailStr
+import requests
+
+app = FastAPI()
+
+class Lead(BaseModel):
+    name: str
+    email: EmailStr
+    company: str = ''
+    message: str = ''
+
+N8N_WEBHOOK_URL = "http://localhost:5678/webhook/lead-submission"  # replace with your actual n8n webhook URL
+
+@app.post("/submit")
+async def submit_lead(lead: Lead):
+    try:
+        response = requests.post(N8N_WEBHOOK_URL, json=lead.dict())
+        response.raise_for_status()
+        return {"message": "Lead submitted to n8n"}
+    except requests.exceptions.RequestException as e:
+        raise HTTPException(status_code=500, detail=str(e))
