@@ -1,0 +1,23 @@
+ Workflow Setup
+1. Webhook Node
+Method: POST
+
+Path: /webhook/lead-submission
+
+Fields:
+
+name, email, company, message
+
+2. Send Email Node
+Use SMTP or SendGrid credentials.
+
+Email body template:
+
+New Lead Submitted:
+Name: {{ $json.name }}
+Email: {{ $json.email }}
+Company: {{ $json.company }}
+Message: {{ $json.message }}
+
+3. (Optional) Google Sheets Node
+Append data to a "Leads" sheet with matching columns.
