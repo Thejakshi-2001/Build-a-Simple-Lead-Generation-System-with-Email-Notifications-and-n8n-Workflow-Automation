@@ -1,0 +1,30 @@
+Create a new workflow with:
+
+Webhook trigger (POST /webhook/lead-submission)
+
+Send Email node
+
+Use environment variables for SMTP/API credentials.
+
+🔌 Integration
+The frontend posts form data to the FastAPI backend.
+
+The backend validates and forwards it to an n8n webhook.
+
+n8n handles the automation (emails, storage, etc).
+
+🛠️ Future Extensions
+Add reCAPTCHA for spam prevention.
+
+Store leads in a CRM like HubSpot.
+
+Add lead scoring or qualification logic.
+
+Use secure HTTPS for endpoints.
+
+---
+Would you like:
+- A deployable GitHub-ready project with all this code?
+- The `n8n` workflow JSON export for quick import?
+
+Let me know!
