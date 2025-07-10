@@ -1,0 +1,126 @@
+🔧 Proposed Tech Stack
+Backend Framework: NestJS (robust, scalable, and typescript-based; good for complex apps)
+
+Frontend Framework: ReactJS (with Redux Toolkit or React Context for state management)
+
+Database: PostgreSQL (relational structure with strong consistency)
+
+ORM: TypeORM or Prisma (with NestJS)
+
+📁 System Architecture Overview
+Backend (NestJS)
+Modular structure:
+
+auth (JWT-based authentication)
+
+users (user management)
+
+stores (store management)
+
+ratings (rating logic)
+
+admin (admin dashboards and operations)
+
+Frontend (ReactJS)
+Role-based route access
+
+Pages/components:
+
+Login
+
+Signup
+
+Store list (for users and owners)
+
+Rating form (for users)
+
+Admin dashboard (metrics, user/store management)
+
+
+Ratings
+-------
+id (PK)
+user_id (FK to Users.id)
+store_id (FK to Stores.id)
+rating INTEGER CHECK (rating >= 1 AND rating <= 5)
+created_at
+🔑 Authentication & Authorization
+JWT-based auth
+
+Role-based access control (admin/user/owner)
+
+Middleware or guards in NestJS to restrict routes
+
+Password hashing with bcrypt
+
+🧑‍💻 User Functionalities
+Normal User
+Register/login/logout
+
+Update password (with form validation)
+
+View all stores
+
+Filter/search by store name/address
+
+Submit or update rating (1–5 scale)
+
+View own ratings + average rating
+
+Store Owner
+Login/logout
+
+Update password
+
+View list of users who rated their store
+
+View their store's average rating
+
+System Admin
+Add users/stores (form with validation)
+
+Dashboard:
+
+Total users
+
+Total stores
+
+Total ratings
+
+View and filter:
+
+Stores: Name, Email, Address, Avg Rating
+
+Users: Name, Email, Role, Address
+
+Sorting and filtering support for all tables
+
+✅ Form Validation Rules
+Field	Rule
+Name	Min 20, Max 60 characters
+Address	Max 400 characters
+Email	Must be valid
+Password	8–16 chars, one uppercase, one special character
+
+Use Yup + Formik or React Hook Form on the frontend
+
+Backend should also revalidate for security
+
+📊 Admin Dashboard Mock Data Example
+Metric	Value
+Total Users	150
+Total Stores	50
+Total Ratings	450
+
+📌 Development Best Practices
+Use environment variables for config
+
+Use DTOs and validation pipes in NestJS
+
+Modularize frontend React components
+
+Use service layers for business logic
+
+Implement unit tests and integration tests (e.g., Jest for NestJS)
+
+Would you like a project folder structure (for both frontend and backend) or a sample database seed script to get started quickly?
