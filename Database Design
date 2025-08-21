@@ -1,0 +1,30 @@
+Column Name	Data Type	Constraints / Description
+id	SERIAL	Primary Key, auto-incrementing unique recipe ID
+title	VARCHAR(255)	NOT NULL, the title of the recipe
+cuisine	VARCHAR(100)	Optional, e.g., "Italian", "Indian", etc.
+rating	FLOAT	Optional, average user rating
+prep_time	INT	Optional, in minutes
+cook_time	INT	Optional, in minutes
+total_time	INT	Optional, in minutes (could be derived: prep + cook)
+description	TEXT	Optional, detailed description or instructions
+nutrients	JSONB	Optional, structured nutrition info (e.g., calories, fat)
+serves	VARCHAR(50)	Optional, e.g., "2 people", "4 servings", etc.
+created_at	TIMESTAMP	Defaults to NOW(), when the record was added
+updated_at	TIMESTAMP	Automatically updated timestamp
+
+
+
+CREATE TABLE recipes (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    cuisine VARCHAR(100),
+    rating FLOAT,
+    prep_time INT,
+    cook_time INT,
+    total_time INT,
+    description TEXT,
+    nutrients JSONB,
+    serves VARCHAR(50),
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW()
+);
